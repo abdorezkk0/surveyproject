@@ -1,25 +1,70 @@
 # Intern Survey Project
 
-A survey project with three main modules:
-1. Survey Creation - Create surveys with mandatory questions
-2. Survey Assignment - Assign surveys to users
-3. Response Summary - View and analyze survey responses
+A comprehensive survey management application built with the MERN stack (MongoDB, Express, React, Node.js).
+
+## Project Overview
+
+This application is divided into three main modules:
+
+1. **Survey Creation**: Create custom surveys with multiple-choice questions
+2. **Survey Assignment**: Assign surveys to specific users
+3. **Response Summary**: View and analyze survey responses
 
 ## Technology Stack
-- Frontend: React
-- Backend: Node.js with Express
-- Database: MongoDB
+- **Frontend**: React.js
+- **Backend**: Node.js with Express.js
+- **Database**: MongoDB
+- **API Style**: RESTful
 
 ## Project Structure
-The project is divided into frontend and backend directories:
-
-### Frontend
-- React application for creating, assigning, and viewing surveys
-- Components for survey creation, user assignment, and response visualization
 
 ### Backend
-- Express API for handling survey data
-- MongoDB models for users, surveys, assignments, and responses
+```
+backend/
+├── config/
+│   └── db.js             # Database configuration
+├── controllers/
+│   ├── surveyController.js  # Survey CRUD operations
+│   ├── userController.js    # User management (for survey assignment)
+│   └── responseController.js # Survey responses handling
+├── models/
+│   ├── Survey.js         # Survey schema
+│   ├── User.js           # User schema (for assignment)
+│   └── Response.js       # Survey response schema
+├── routes/
+│   ├── surveys.js        # Survey routes
+│   ├── users.js          # User routes
+│   └── responses.js      # Response routes
+├── middleware/
+│   └── auth.js           # Authentication middleware (future implementation)
+├── package.json          # Backend dependencies
+└── server.js             # Express server setup
+```
+
+### Frontend
+```
+frontend/
+├── public/
+│   ├── index.html        # HTML template
+│   └── ...               # Other public assets
+├── src/
+│   ├── components/
+│   │   ├── QuestionInput.js  # Question input component
+│   │   ├── SurveyForm.js     # Survey creation form
+│   │   ├── SurveyCard.js     # Survey display card
+│   │   └── Layout.js         # App layout component
+│   ├── pages/
+│   │   ├── Dashboard.js      # Main dashboard
+│   │   ├── CreateSurvey.js   # Survey creation page
+│   │   ├── AssignSurvey.js   # Survey assignment page (Module 2)
+│   │   └── ResponseSummary.js # Response summary page (Module 3)
+│   ├── services/
+│   │   └── api.js           # API service for backend communication
+│   ├── App.js               # Main application component
+│   ├── App.css              # Application styles
+│   └── index.js             # Application entry point
+└── package.json             # Frontend dependencies
+```
 
 ## Module-to-File Mapping
 

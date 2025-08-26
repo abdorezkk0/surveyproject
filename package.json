@@ -3,12 +3,24 @@
   "version": "1.0.0",
   "description": "Survey project with modules for creation, assignment, and response summary",
   "scripts": {
-    "start": "cd backend && npm start",
-    "server": "cd backend && npm run dev",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm start",
+    "server:dev": "cd backend && npm run dev",
     "client": "cd frontend && npm start",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+    "dev": "concurrently \"npm run server:dev\" \"npm run client\"",
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "build": "cd frontend && npm run build",
+    "test:db": "cd backend && npm run test:db",
+    "test:api": "cd backend && npm run test:api"
   },
+  "keywords": [
+    "mongodb",
+    "express",
+    "react",
+    "node",
+    "mern",
+    "survey"
+  ],
   "devDependencies": {
     "concurrently": "^8.0.1"
   }
