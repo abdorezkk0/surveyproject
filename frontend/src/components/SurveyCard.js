@@ -1,45 +1,14 @@
-// Component to display survey item information
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
 
-const SurveyCard = ({ survey, onDelete }) => {
-  const handleDelete = () => {
-    if (window.confirm('Are you sure you want to delete this survey?')) {
-      onDelete(survey._id);
-    }
-  };
-
+const SurveyCard = ({ title, totalResponses }) => {
   return (
-    <div className="survey-card">
-      <div className="survey-card-header">
-        <h3>{survey.title}</h3>
-        <span className="question-count">
-          {survey.questions.length} question{survey.questions.length !== 1 ? 's' : ''}
-        </span>
-      </div>
-      
-      <div className="survey-card-body">
-        <p>{survey.description || 'No description provided.'}</p>
-        <p className="survey-date">
-          Created: {new Date(survey.dateCreated).toLocaleDateString()}
-        </p>
-      </div>
-      
-      <div className="survey-card-actions">
-        <Link to={`/surveys/${survey._id}`} className="view-btn">
-          View
-        </Link>
-        <Link to={`/surveys/edit/${survey._id}`} className="edit-btn">
-          Edit
-        </Link>
-        <button 
-          className="delete-btn"
-          onClick={handleDelete}
-        >
-          Delete
-        </button>
-      </div>
-    </div>
+    <Card className="shadow-md rounded-xl mb-4">
+      <CardContent className="p-4">
+        <h2 className="text-lg font-semibold">{title}</h2>
+        <p className="text-gray-600">Total Responses: {totalResponses}</p>
+      </CardContent>
+    </Card>
   );
 };
 
